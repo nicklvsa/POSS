@@ -1,0 +1,25 @@
+var test = false;
+
+styled-text as class {
+	font.style = "italic";
+	font.weight = "bold";
+}
+
+styled-text as id {
+	font.size<px> = 25;
+}
+
+element-a as id {
+	@inherit<class>(styled-text);
+}
+
+element-b as id inherits<id> element-a {
+	
+}
+
+//or
+
+element-b as id {
+	[test] ? @inherit<class>(styled-text);
+
+}

@@ -1,0 +1,92 @@
+ALPHA DOCS - Preprocessed Objectified Style Sheets:
+
+NOTICE:
+	anything with (WIP) means work-in-progress
+	this means the documented functionality may not work as intended
+
+VARIABLES:
+	TYPES:
+		boolean, string, number, array
+	DECLARATION:
+		var _name = "_value";
+		var _name = 123;
+	RETRIEVING:
+		something = [_name];
+		font.style = [_name];
+
+STYLING:
+	TYPES:
+		id, class
+
+	DECLARATION:
+		CSS:
+			.some-class {}
+			#some-id {}
+
+		POSS:
+			some-class as class {}
+			some-id as id {}
+
+	INHERITANCE:
+		some-class as class inherits<id/class> some-id/some-class {}
+		some-id as id inherits<id/class> some-id/some-class {}
+
+		some-class as class {
+			@inherit<id>(some-id);
+			@inherit<class>(some-class);
+		}
+
+		some-id as id {
+			@inherit<id>(some-id);
+			@inherit<class>(some-class);
+		}
+
+	CSS-BUILT-IN-STYLING:
+		CSS:
+			font-style: italic;
+			font-weight: bold;
+			font-size: 25px;
+		POSS:
+			font.style = "italic";
+			font.weight = "bold";
+			font.size<px> = 25;
+
+	MEDIA-QUERIES(WIP):
+		CSS:
+			TYPES:
+				all, print, screen, speech //see w3schools for explanation of types
+			EXAMPLE:
+				@media not/only mediatype and (expressions) {} //from w3schools
+		POSS:
+			TYPES:
+				query: phone, tablet, desktop
+				actions: redef, mod
+			EXAMPLE:
+				@respond(phone) {
+					some-class<class> redef {
+						//redefine the whole class or id
+					}
+
+					some-id<id> mod {
+						//use original styling from class or id but add more styling
+					}
+				}
+
+	CONDITIONALS(WIP):
+			EXAMPLES:
+				var test = false;
+				some-class as class {
+					[test]? //do something
+				}
+
+			TODO:
+				add ability to use conditionals on classes and ids and their properties
+
+				add multi line conditionals... as of now, only single line conditionals are implemented
+
+	
+
+
+
+
+
