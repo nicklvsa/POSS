@@ -1,25 +1,27 @@
-var test = false;
+@using("some_import.poss");
 
-styled-text as class {
-	font.style = "italic";
-	font.weight = "bold";
+$test = false;
+
+class styled-text {
+	font-style = italic;
+	font-weight = bold;
 }
 
-styled-text as id {
-	font.size<px> = 25;
+id styled-text {
+	font-size<px> = 25;
 }
 
-element-a as id {
+id element-a {
 	@inherit<class>(styled-text);
 }
 
-element-b as id inherits<id> element-a {
+id element-b inherits<id> element-a {
 	
 }
 
 //or
 
-element-b as id {
+id element-b {
 	[test] ? @inherit<class>(styled-text);
 
 }

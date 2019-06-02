@@ -11,14 +11,14 @@ POSS-SPECIAL-FUNCTIONS:
 	TODO:
 		add more functions
 
-
-
 VARIABLES:
 	TYPES:
 		boolean, string, number, array
+		
 	DECLARATION:
 		var _name = "_value";
 		var _name = 123;
+
 	RETRIEVING:
 		something = [_name];
 		font.style = [_name];

@@ -25,10 +25,17 @@ var POSS_SPECIAL_KEYWORDS = [
 ];
 
 module.exports = (css) => {
-	return new Converter(css);
+	return new PossParser(css);
 }
 
-function Converter(css) {
-	//convert poss -> css
+function PossParser(raw) {
+	
+}
 
+function verifyCssValidity(css) {
+	//convert poss -> css
+	var parser = require('css-parse');
+	this.css = css;
+	this.root = parser(css, {position: false});
+	this.indents = 0;
 }

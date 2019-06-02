@@ -2,7 +2,7 @@
 
 var isWin = process.platform === 'win32';
 
-var poss = require('./lib/poss');
+var poss = require('./lib/poss-lib');
 var fs = require('fs');
 var path = require('path');
 var semver = require('semver');
@@ -45,8 +45,7 @@ while(args.length) {
 		break;
 
 		default:
-			compilePoss = false;
-		return;
+			files.push(arg);
 	}
 }
 
@@ -55,10 +54,10 @@ var str = '';
 if(compilePoss) {
 	switch(files.length) {
 		case 2:
-			compilePoss(files[0], files[1]);
+			compileCSS(files[0], files[1]);
 		break;
 		case 1:
-			compilePoss(file, join(dirname(file), basename(file, extname(file))) + '.poss');
+			compileCSS(file, join(dirname(file), basename(file, extname(file))) + '.poss');
 		break;
 		default:
 			var stdin = process.openStdin();
@@ -74,14 +73,15 @@ if(compilePoss) {
 	}
 }
 
-function compilePoss(file, fileOut) {
+function compileCSS(file, fileOut) {
+	console.log(file + " : " + fileOut);
 	fs.stat(file, (err, stat) => {
 		if(err) throw err;
 		if(stat.isFile()) {
-			fs.readLine(file, 'utf8', (err, str) => {
+			fs.readFile(file, 'utf8', (err, str) => {
 				if(err) throw err;
-				var poss = poss.convertCSS(str);
-				fs.writeFile(fileOut, poss, (err) => {
+				var possConverter = poss.convertCSS(str);
+				fs.writeFile(fileOut, possConverter, (err) => {
 					if(err) throw err;
 				});
 			});
