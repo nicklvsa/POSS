@@ -4,6 +4,15 @@ NOTICE:
 	anything with (WIP) means work-in-progress
 	this means the documented functionality may not work as intended
 
+POSS-SPECIAL-FUNCTIONS:
+	FUNCTIONS:
+		@respond, @inherit, @calc
+
+	TODO:
+		add more functions
+
+
+
 VARIABLES:
 	TYPES:
 		boolean, string, number, array
@@ -84,7 +93,7 @@ STYLING:
 
 				add multi line conditionals... as of now, only single line conditionals are implemented
 
-	
+
 
 
 
