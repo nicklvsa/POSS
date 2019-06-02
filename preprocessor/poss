@@ -1,0 +1,90 @@
+#!/usr/bin/env node
+
+var isWin = process.platform === 'win32';
+
+var poss = require('./lib/poss');
+var fs = require('fs');
+var path = require('path');
+var semver = require('semver');
+var basename = path.basename;
+var dirname = path.dirname;
+var extname = path.extname;
+var resolve = path.resolve;
+var join = path.join;
+var mkdirSync = semver.satisfies(process.version, '>=10.12.0') ? fs.mkdirSync : require('mkdirp').sync;
+
+var args = process.argv.slice(2);
+
+var usage = [
+	'',
+	'Usage: poss -c/--compile [file.poss] [file.css]',
+
+
+	'Commands:',
+	'	-h/--help: [property]',
+
+].join('\n');
+
+
+var files = [];
+var compilePoss = false;
+
+var arg;
+while(args.length) {
+	arg = args.shift();
+	switch(arg) {
+
+		case '-h':
+		case '--help':
+			console.error(usage);
+		return;
+
+		case '-c':
+		case '--compile':
+			compilePoss = true;
+		break;
+
+		default:
+			compilePoss = false;
+		return;
+	}
+}
+
+var str = '';
+
+if(compilePoss) {
+	switch(files.length) {
+		case 2:
+			compilePoss(files[0], files[1]);
+		break;
+		case 1:
+			compilePoss(file, join(dirname(file), basename(file, extname(file))) + '.poss');
+		break;
+		default:
+			var stdin = process.openStdin();
+			stdin.setEncoding('utf8');
+			stdin.on('data', (chunk) => {
+				str += chunk;
+			});
+			stdin.on('end', () => {
+				var out = convertCSS(str);
+				console.log(out);
+			});
+		break;
+	}
+}
+
+function compilePoss(file, fileOut) {
+	fs.stat(file, (err, stat) => {
+		if(err) throw err;
+		if(stat.isFile()) {
+			fs.readLine(file, 'utf8', (err, str) => {
+				if(err) throw err;
+				var poss = poss.convertCSS(str);
+				fs.writeFile(fileOut, poss, (err) => {
+					if(err) throw err;
+				});
+			});
+		}
+	});
+}
