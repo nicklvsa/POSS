@@ -1,11 +1,15 @@
 $color = blue
+$size = 12px
 
-struct makeRound ($rad = 12px) 
-	border-radius = $rad
-	-webkit-border-radius = $rad
+struct makeRound ($border = 12px) 
+	border-radius = $border
+	-webkit-border-radius = $border
 
 id header 
 	makeRound
+
+class header 
+	font-style = italic
 
 class footer 
 	@inherit<id>(header)
@@ -16,5 +20,4 @@ id content
 
 id test-inherit
 	@inherit<class>(footer)
-	font-size = 12px
-
+	font-size = $size

@@ -4,19 +4,26 @@ border-radius:12px;
 ;
 ;
 }
+
+.header {
+font-style:italic;
+;
+}
+
 .footer {
-test;
+;
 border-radius:12px;
 -webkit-border-radius:12px;
 ;
 ;
 }
+
 #content {
-background-color: blue;
+background-color:blue;
 ;
 }
+
 #test-inherit {
-test;
-font-size: 12px;
 ;
+font-size:12px;
 }

@@ -71,18 +71,32 @@ function transformTree(tree) {
             //console.log(child);
 
             if(child.name.startsWith('@') && child.name[0] === '@') {
+
                 if(child.name.indexOf('@inherit') > -1) {
-                    var type = child.name.split('<')[1].split('>')[0];
-                    var value = child.name.split('(')[1].split(')')[0];
 
-                    /*TODO: figure out best way to replace inheritance tag 
-                    with the corresponding definition of the class or id
-                    */
+                    var type = child.name.split('<')[1].split('>')[0].trim();
+                    var value = child.name.split('(')[1].split(')')[0].trim();
 
-                    child.name = child.name.replace(child.name, "test");//.trim().join('\n');
+                 
+                    //TEMP: remove traces of invalid @inherit tag in css
+                    child.name = child.name.replace(child.name, "");
 
                     console.log('value: ' + value + ' | as type: ' + type);
                 }
+
+                //TODO: move to variables declarations
+                /*if(child.name.includes("@calc")) {
+                    var eqReturnType = child.name.split('<')[1].split('>')[0].trim();
+                    var eq = child.name.split('(')[1].split(')')[0].trim().split(',');
+
+                    for(var i = 0; i < eq.length; i++) {
+                        console.log(eq[i]);
+                    }
+
+                    //TEMP: remove traces of invalid @calc tag in css
+                    child.name = child.name.replace(child.name, "");
+                }*/
+
             }
 
             var buffer = '';
@@ -121,8 +135,9 @@ function transformTree(tree) {
                     buffer += ';';
                 }
             }
+
             //console.log("Semi Colon Written: " + semiColonTracker);
-            return buffer.trim();
+            return buffer;
         });
     };
 
