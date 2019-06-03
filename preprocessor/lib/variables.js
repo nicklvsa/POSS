@@ -15,8 +15,6 @@ exports.find = (tree) => {
                 buffer[parts[0].trim()] = parts[1].trim();
             }
 
-            console.log(buffer);
-
             child.deleted = true;
         }
     });

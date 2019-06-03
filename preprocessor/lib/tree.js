@@ -82,7 +82,6 @@ function transformTree(tree) {
             //console.log(child);
 
             if(child.name.startsWith('@') && child.name[0] === '@') {
-
                 if(child.name.indexOf('@inherit') > -1) {
 
                     var type = child.name.split('<')[1].split('>')[0].trim();
@@ -99,6 +98,8 @@ function transformTree(tree) {
                 if(child.name.includes("@calc")) {
                     var eqReturnType = child.name.split('<')[1].split('>')[0].trim();
                     var eq = child.name.split('(')[1].split(')')[0].trim().split(',');
+
+                    console.log('@calc return type: ' + eqReturnType + ' | eq[0]: ' + eq[0]);
 
                     for(var i = 0; i < eq.length; i++) {
 
