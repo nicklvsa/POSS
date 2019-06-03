@@ -12,6 +12,7 @@ exports.find = (tree) => {
             //TODO: move @calc from tree to here
 
             var parts = child.name.trim().split('=');
+
             if (parts[1]) {
                 buffer[parts[0].trim()] = parts[1].trim();
             }

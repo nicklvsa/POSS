@@ -21,3 +21,4 @@ id content
 id test-inherit
 	@inherit<class>(footer)
 	font-size = $size
+	height = @calc<px>(mult, 12, 9)

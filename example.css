@@ -26,4 +26,5 @@ background-color:blue;
 #test-inherit {
 ;
 font-size:12px;
+height:@calc<px>(mult, 12, 9);
 }

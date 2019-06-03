@@ -56,6 +56,17 @@ function printTree(tree, i) {
 exports.print = printTree;
 
 function transformTree(tree) {
+
+    var mathTypes = [
+        "mult",
+        "sub",
+        "add",
+        "div",
+        "cos",
+        "sin",
+        "tan"
+    ];
+
     var variables = _variables.find(tree);
     var structs = _structs.find(tree);
     var nested = [];
@@ -84,18 +95,40 @@ function transformTree(tree) {
                     console.log('value: ' + value + ' | as type: ' + type);
                 }
 
-                //TODO: move to variables declarations
-                /*if(child.name.includes("@calc")) {
+                //TODO: not working... issues with not finding @calc on a var decl
+                if(child.name.includes("@calc")) {
                     var eqReturnType = child.name.split('<')[1].split('>')[0].trim();
                     var eq = child.name.split('(')[1].split(')')[0].trim().split(',');
 
                     for(var i = 0; i < eq.length; i++) {
-                        console.log(eq[i]);
+
+                        for(var j = 0; j < mathTypes.length; j++) {
+                            if(eq[i].trim().indexOf(mathTypes[j])) {
+                                switch(mathTypes[j]) {
+                                    case "mult":
+                                        console.log("mult found");
+                                    break;
+                                    case "add":
+                                        console.log("add found");
+                                    break;
+                                    case "sub":
+                                        console.log("sub found");
+                                    break;
+                                    case "div":
+                                        console.log("div found");
+                                    break;
+                                    default:
+                                        console.log("no-matching-types");
+                                    break;
+                                }
+                            }
+                        }
                     }
 
+
                     //TEMP: remove traces of invalid @calc tag in css
-                    child.name = child.name.replace(child.name, "");
-                }*/
+                    child.name = child.name.replace(child.name, );
+                }
 
             }
 
