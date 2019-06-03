@@ -9,12 +9,12 @@ main();
 function main() {
     const argv = minimist(process.argv.slice(2));
 
-    if(!argv.input) {
-        return console.error('[POSS] Please include --input');
+    if(!argv.in) {
+        return console.error('[POSS] Please include --in');
     }
 
-    if(!argv.output) {
-        return console.error('[POSS] Please include --output');
+    if(!argv.out) {
+        return console.error('[POSS] Please include --out');
     }
 
     const input = fs.readFileSync(argv.input, {
