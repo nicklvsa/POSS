@@ -1,9 +1,9 @@
 'use strict';
 
-exports.find = function(tree) {
+exports.find = (tree) => {
     var buffer = {};
 
-    tree.forEach(function(child) {
+    tree.forEach((child) => {
 
         if (child.name[0] === '$') {
 
@@ -21,7 +21,7 @@ exports.find = function(tree) {
     return buffer;
 };
 
-exports.replace = function(line, vars) {
+exports.replace = (line, vars) => {
     for (var k in vars) {
         var v = vars[k];
 

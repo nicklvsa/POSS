@@ -9,9 +9,9 @@
   "devDependencies": {
     "suite.js": "== 0.1.7"
   },
-  "scripts": {
+  /*"scripts": {
     "test": "node tests"
-  },
+  },*/
   "main": "./lib/poss.js",
   "bin": "./bin/poss",
   "repository": {

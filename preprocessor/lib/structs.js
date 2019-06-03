@@ -2,10 +2,10 @@
 
 var parse = require('./params').parse;
 
-exports.find = function(tree) {
+exports.find = (tree) => {
     var buffer = {};
 
-    tree.forEach(function(child) {
+    tree.forEach((child) => {
         if (child.name.search('struct ') === 0) {
 
             var parts = child.name.split(' ');

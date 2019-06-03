@@ -52,6 +52,7 @@ function printTree(tree, i) {
         printTree(k.children, i + 1);
     });
 }
+
 exports.print = printTree;
 
 function transformTree(tree) {
@@ -68,11 +69,13 @@ function transformTree(tree) {
             }
 
             //console.log(child);
-            
+
             if(child.name.startsWith('@') && child.name[0] === '@') {
                 if(child.name.indexOf('@inherit') > -1) {
                     var type = child.name.split('<')[1].split('>')[0];
                     var value = child.name.split('(')[1].split(')')[0];
+
+
 
                     child.name = child.name.replace(child.name, "test");//.trim().join('\n');
 
