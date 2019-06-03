@@ -1,37 +1,34 @@
 'use strict';
 
-exports.parse = (line) => {
-	var buffer = {};
-	var parts;
 
-	line = line.trim();
-	line = line.substr(1, line.length - 2);
-	parts = line.split(',');
+exports.parse = function(line) {
+    var buffer = {};
+    var parts;
 
-	parts.forEach((k) => {
-		var cssIntegerLikelySizingType = "";
-		var segs = k.split('=');
-		if(segs[0].substr(segs[0].indexOf('<') + 1, segs[0].indexOf('>')) != null) {
-			//css integer type defined
-			cssIntegerLikelySizingType = segs[0].substr(segs[0].indexOf('<') + 1, segs[0].indexOf('>')).trim().toLowerCase();
-		}
-		buffer[segs[0]] = segs[1] + (cssIntegerLikelySizingType != null && cssIntegerLikelySizingType != "") ? cssIntegerLikelySizingType : "";
-	});
+    line = line.trim();
+    line = line.substr(1, line.length - 2);
+    parts = line.split(',');
 
-	return buffer;
+    parts.forEach((k) => {
+        var segments = k.split('=');
+
+        buffer[segments[0]] = segments[1];
+    });
+
+    return buffer;
 };
 
-exports.set = (params, vals) => {
-	values = values || {};
+exports.set = (params, values) => {
+    values = values || [];
 
-	var buffer = {};
-	var i = 0;
+    var buffer = {};
+    var i = 0;
 
-	for(var k in params) {
-		buffer[k] = values[i] || params[k];
-		i++;
-	}
+    for (var k in params) {
+        buffer[k] = values[i] || params[k];
 
-	return buffer;
+        i++;
+    }
+
+    return buffer;
 };
-

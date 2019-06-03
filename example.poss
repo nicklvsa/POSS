@@ -1,0 +1,14 @@
+$color= blue
+
+struct makeRound ($rad = 12px) 
+	border-radius = $rad
+	-webkit-border-radius = $rad
+
+id header 
+	makeRound
+
+class footer 
+	makeRound = 10px
+
+id content 
+	background-color = $color

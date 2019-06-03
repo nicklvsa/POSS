@@ -1,15 +1,26 @@
 {
-    "name": "POSS",
-    "version": "0.0.1",
-    "main": "./poss",
-    "bin": {
-        "greet": "./bin/index.js"
-    },
-    "dependencies": {
-        "css-parse": "^2.0.0",
-        "fs": "0.0.1-security",
-        "mkdirp": "^0.5.1",
-        "path": "^0.12.7",
-        "semver": "^6.1.1"
-    }
+  "name": "Poss",
+  "description": "Preprocessed Objectified Style Sheets",
+  "author": "Nick Gerancher <nick@nickdesk.com>",
+  "version": "0.1.1",
+  "dependencies": {
+    "minimist": "^1.2.0"
+  },
+  "devDependencies": {
+    "suite.js": "== 0.1.7"
+  },
+  "scripts": {
+    "test": "node tests"
+  },
+  "main": "./lib/poss.js",
+  "bin": "./bin/poss",
+  "repository": {
+    "type": "git",
+    "url": "https://gitlab.com/nicksdesk/poss"
+  },
+  "homepage": "https://gitlab.com/nicksdesk/poss",
+  "bugs": {
+    "url": "https://gitlab.com/nicksdesk/poss/issues"
+  },
+  "license": "MIT"
 }
