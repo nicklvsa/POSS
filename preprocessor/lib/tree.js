@@ -75,7 +75,9 @@ function transformTree(tree) {
                     var type = child.name.split('<')[1].split('>')[0];
                     var value = child.name.split('(')[1].split(')')[0];
 
-
+                    /*TODO: figure out best way to replace inheritance tag 
+                    with the corresponding definition of the class or id
+                    */
 
                     child.name = child.name.replace(child.name, "test");//.trim().join('\n');
 
