@@ -5,8 +5,8 @@ exports.find = function(tree) {
 
     tree.forEach(function(child) {
         if (child.name[0] === '$') {
-            var parts = child.name.trim().split('=');
 
+            var parts = child.name.trim().split('=');
             if (parts[1]) {
                 buffer[parts[0].trim()] = parts[1].trim();
             }
@@ -24,7 +24,13 @@ exports.replace = function(line, vars) {
 
         //prob make this a little better... lots of string replacement
         line = line.replace(' ', '').trim();
-        line = line.replace(k, v).replace('=', ':').replace('class', '.').replace('id', '#').trim();
+
+        if(line.indexOf("<") > -1 && line.indexOf(">") > -1) {
+            line = line.replace(k, v).replace('=', ':').trim();
+        } else {
+            line = line.replace(k, v).replace('=', ':').replace('class', '.').replace('id', '#').trim();
+        }
+
     }
 
     return line;

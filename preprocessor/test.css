@@ -1,0 +1,21 @@
+#header {
+border-radius:12px;
+-webkit-border-radius:12px;
+;
+;
+}
+.footer {
+border-radius:12px;
+-webkit-border-radius:12px;
+;
+;
+}
+#content {
+background-color: blue;
+;
+}
+#test-inherit {
+@inherit<class>(footer);
+font-size: 12px;
+;
+}
