@@ -1,4 +1,4 @@
-$color= blue
+$color = blue
 
 struct makeRound ($rad = 12px) 
 	border-radius = $rad
@@ -8,7 +8,13 @@ id header
 	makeRound
 
 class footer 
+	@inherit<id>(header)
 	makeRound = 10px
 
 id content 
 	background-color = $color
+
+id test-inherit
+	@inherit<class>(footer)
+	font-size = 12px
+
