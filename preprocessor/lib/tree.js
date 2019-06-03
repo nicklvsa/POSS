@@ -128,16 +128,15 @@ function transformTree(tree) {
                             }
                         }
                     }
-
-
-                    //TEMP: remove traces of invalid @calc tag in css
-                    child.name = child.name.replace(child.name, );
                 }
 
             }
 
             var buffer = '';
             var parts = child.name.split('=');
+
+            console.log(parts[1]);
+
             var begin = parts[0].trim();
 
             //console.log(begin);
