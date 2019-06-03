@@ -102,9 +102,8 @@ function transformTree(tree) {
                     console.log('@calc return type: ' + eqReturnType + ' | eq[0]: ' + eq[0]);
 
                     for(var i = 0; i < eq.length; i++) {
-
                         for(var j = 0; j < mathTypes.length; j++) {
-                            if(eq[i].trim().indexOf(mathTypes[j])) {
+                            if(eq[i].trim().indexOf(mathTypes[j]) > -1) {
                                 switch(mathTypes[j]) {
                                     case "mult":
                                         console.log("mult found");
@@ -122,6 +121,10 @@ function transformTree(tree) {
                                         console.log("no-matching-types");
                                     break;
                                 }
+                            } else {
+                                /*
+                                   provided type was not found in valid types array
+                                */
                             }
                         }
                     }
