@@ -5,6 +5,7 @@ border-radius:12px;
 ;
 }
 .footer {
+test;
 border-radius:12px;
 -webkit-border-radius:12px;
 ;
@@ -15,7 +16,7 @@ background-color: blue;
 ;
 }
 #test-inherit {
-@inherit<class>(footer);
+test;
 font-size: 12px;
 ;
 }

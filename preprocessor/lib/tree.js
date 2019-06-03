@@ -67,11 +67,15 @@ function transformTree(tree) {
                 return '';
             }
 
-            if(child.name.startsWith('@')) {
+            //console.log(child);
+            
+            if(child.name.startsWith('@') && child.name[0] === '@') {
                 if(child.name.indexOf('@inherit') > -1) {
                     var type = child.name.split('<')[1].split('>')[0];
                     var value = child.name.split('(')[1].split(')')[0];
-                    
+
+                    child.name = child.name.replace(child.name, "test");//.trim().join('\n');
+
                     console.log('value: ' + value + ' | as type: ' + type);
                 }
             }
