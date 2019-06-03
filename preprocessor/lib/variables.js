@@ -9,13 +9,13 @@ exports.find = (tree) => {
 
             //console.log(child);
 
-            //TODO: move @calc from tree to here
-
             var parts = child.name.trim().split('=');
 
             if (parts[1]) {
                 buffer[parts[0].trim()] = parts[1].trim();
             }
+
+            console.log(buffer);
 
             child.deleted = true;
         }

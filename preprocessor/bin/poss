@@ -17,14 +17,14 @@ function main() {
         return console.error('[POSS] Please include --out');
     }
 
-    const input = fs.readFileSync(argv.input, {
+    const input = fs.readFileSync(argv.in, {
         encoding: 'utf-8'
     });
 
-    fs.writeFile(argv.output, poss(input), (err) => {
+    fs.writeFile(argv.out, poss(input), (err) => {
         if(err) {
             return console.error(err);
         }
-        console.log('Compiled: ', argv.output);
+        console.log('Compiled: ', argv.out);
     });
 }
