@@ -2,6 +2,5 @@
 
 ## CLI
 
-```bash
-poss --input <poss-file> --output <output-css-file>
-```
+
+poss --in <poss-file> --out <output-css-file>
