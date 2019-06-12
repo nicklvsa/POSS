@@ -9,7 +9,7 @@ poss --in (poss-file.poss) --out (output-css-file.css)
 ## New
 
 - remove curly brace requirement
-- changes . anb # to actual word "class" and "id"
+- changes "." and "#" to actual word "class" and "id"
 - variable usage and declarations
 - "sass-style" mixins called "structs"
 - cli compiler
