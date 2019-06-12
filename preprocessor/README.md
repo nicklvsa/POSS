@@ -3,4 +3,4 @@
 ## CLI
 
 
-poss --in <poss-file> --out <output-css-file>
+poss --in (poss-file.poss) --out (output-css-file.css)
