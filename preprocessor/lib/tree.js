@@ -5,7 +5,7 @@ var _structs = require('./structs');
 var _params = require('./params');
 var _variables = require('./variables');
 
-exports.ify = (input) => {
+exports.forge = (input) => {
     var parents = [];
 
     return input.filter((elem) => {
