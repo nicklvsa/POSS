@@ -88,10 +88,25 @@ function transformTree(tree) {
                     var value = child.name.split('(')[1].split(')')[0].trim();
 
                  
-                    //TEMP: remove traces of invalid @inherit tag in css
-                    child.name = child.name.replace(child.name, "");
 
-                    console.log('value: ' + value + ' | as type: ' + type);
+                    /*if((child.parent.name).includes(type) && (child.parent.name).includes(value)) {
+                        child.name = child.name.replace(child.name, child.parent.name);
+                    }  */
+
+                   
+                    /*if(child.parent.children.name.indexOf(type) > -1 && child.parent.children.name.indexOf(value) > -1) {
+                        child.name = child.name.replace(child.name, child.parent.children.name);
+                    }*/
+
+                    
+
+                    //TEMP: remove traces of invalid @inherit tag in css
+                    
+                    /*if(child.name.includes(type) && child.name.includes(value)) {
+                        child.name = child.name.replace(child.name, child.parent.name);
+                    }*/
+
+                    //console.log('value: ' + value + ' | as type: ' + type);
                 }
 
                 //TODO: not working... issues with not finding @calc on a var decl
@@ -182,7 +197,7 @@ function transformTree(tree) {
     var getFullName = (child) => {
         return child.parent ? getFullName(child.parent) + ' ' + child.name : child.name;
     };
-
+    
     if (nested.length) {
         nested = nested.map((child) => {
             child.name = getFullName(child);
