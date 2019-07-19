@@ -11,11 +11,13 @@ exports.forge = (input) => {
     return input.filter((elem) => {
         return elem.l || elem.r;
     }).map((line) => {
+
         var elem = {
             name: line.r,
             children: [],
             ind: line.l.length
         };
+
         var parent = parents[parents.length - 1] || {
             ind: 0
         };
@@ -26,8 +28,9 @@ exports.forge = (input) => {
                 ind: 0
             };
         }
-        elem.parent = parent;
 
+        elem.parent = parent;
+        
         if (elem.ind === 0) {
             parents = [elem];
             elem.parent = null;
@@ -81,8 +84,9 @@ function transformTree(tree) {
 
             //console.log(child);
 
+            //an @ decorator was found
             if(child.name.startsWith('@') && child.name[0] === '@') {
-                if(child.name.indexOf('@inherit') > -1) {
+                if(child.name.indexOf('@use') > -1) {
 
                     var type = child.name.split('<')[1].split('>')[0].trim();
                     var value = child.name.split('(')[1].split(')')[0].trim();

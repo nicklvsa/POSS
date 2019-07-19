@@ -5,7 +5,7 @@ exports.find = (tree) => {
 
     tree.forEach((child) => {
 
-        if(child.name.indexOf('@inherit') > -1) {
+        if(child.name.indexOf('@use') > -1) {
 
             var type = child.name.split('<')[1].split('>')[0].trim();
             var value = child.name.split('(')[1].split(')')[0].trim();

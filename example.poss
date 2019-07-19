@@ -12,12 +12,12 @@ class header
 	font-style = italic
 
 class footer 
-	@inherit<id>(header)
+	@use<id>(header)
 	makeRound = 10px
 
 id content 
 	background-color = $color
 
 id test-inherit
-	@inherit<class>(footer)
+	@use<class>(footer)
 	font-size = $size

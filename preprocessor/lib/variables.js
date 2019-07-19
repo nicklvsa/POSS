@@ -29,7 +29,7 @@ exports.replace = (line, vars) => {
         //prob make this a little better... lots of string replacement
         line = line.replace(' ', '').trim();
 
-        if(line.indexOf("<") > -1 || line.indexOf(">") > -1 || line.indexOf("@inherit") > -1) {
+        if(line.indexOf("<") > -1 || line.indexOf(">") > -1 || line.indexOf("@use") > -1) {
             line = line.replace(k, v).replace('=', ':').trim();
         } else {
             line = line.replace(k, v).replace('=', ':').replace('class', '.').replace('id', '#').trim();
