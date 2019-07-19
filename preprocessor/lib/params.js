@@ -1,6 +1,5 @@
 'use strict';
 
-
 exports.parse = (line) => {
     var buffer = {};
     var parts;

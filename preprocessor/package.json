@@ -1,5 +1,5 @@
 {
-  "name": "Poss",
+  "name": "POSS",
   "description": "Preprocessed Objectified Style Sheets",
   "author": "Nick Gerancher <nick@nickdesk.com>",
   "version": "0.1.1",
@@ -16,8 +16,5 @@
     "url": "https://gitlab.com/nicksdesk/poss"
   },
   "homepage": "https://gitlab.com/nicksdesk/poss",
-  "bugs": {
-    "url": "https://gitlab.com/nicksdesk/poss/issues"
-  },
   "license": "MIT"
 }
