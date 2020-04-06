@@ -4,7 +4,7 @@
   "author": "Nick Gerancher <nick@nickdesk.com>",
   "version": "0.1.1",
   "dependencies": {
-    "minimist": "^1.2.0"
+    "minimist": "^1.2.3"
   },
   "devDependencies": {
     "suite.js": "== 0.1.7"
